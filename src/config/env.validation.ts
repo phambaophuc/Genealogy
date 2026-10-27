@@ -42,6 +42,16 @@ export const envValidationSchema = Joi.object({
   SWAGGER_PATH: Joi.string().default('docs'),
   SWAGGER_TITLE: Joi.string().default('NestJS Base API'),
   SWAGGER_DESCRIPTION: Joi.string().allow('').optional(),
+
+  DB_HOST: Joi.string().hostname().default('localhost'),
+  DB_PORT: Joi.number().port().default(5432),
+  DB_USERNAME: Joi.string().required(),
+  DB_PASSWORD: Joi.string().allow('').required(),
+  DB_NAME: Joi.string().required(),
+  DB_SSL: Joi.boolean().default(false),
+  DB_LOGGING: Joi.boolean().default(false),
+  DB_MIGRATIONS_RUN: Joi.boolean().default(false),
+  DB_POOL_MAX: Joi.number().integer().min(1).default(10),
 }).unknown(true);
 
 /**
