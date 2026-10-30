@@ -13,8 +13,10 @@ import { ResponseTransformInterceptor } from './common/interceptors/response-tra
 import { createValidationPipe } from './common/validation/create-validation-pipe';
 import { LoggingConfig, ThrottlerConfig, configLoaders } from './config';
 import { validateEnv } from './config/env.validation';
+import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HealthModule } from './modules/health/health.module';
+import { PersonModule } from './modules/person/person.module';
 
 @Module({
   imports: [
@@ -111,8 +113,10 @@ import { HealthModule } from './modules/health/health.module';
       },
     }),
 
+    DatabaseModule,
     AuthModule,
     HealthModule,
+    PersonModule,
   ],
   controllers: [AppController],
   providers: [

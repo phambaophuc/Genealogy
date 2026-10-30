@@ -40,18 +40,8 @@ export class Person {
   @Column({ name: 'avatar_url', type: 'text', nullable: true })
   avatarUrl!: string | null;
 
-  @Column({ type: 'smallint', nullable: true })
-  generation!: number | null;
-
   @Column({ name: 'birth_order', type: 'smallint', nullable: true })
   birthOrder!: number | null;
-
-  @Column({
-    name: 'is_blood_line',
-    type: 'boolean',
-    default: true,
-  })
-  isBloodLine!: boolean;
 
   @Column({ name: 'birth_date', type: 'date', nullable: true })
   birthDate!: string | null;
@@ -65,7 +55,7 @@ export class Person {
   birthDatePrecision!: DatePrecision | null;
 
   @Column({ name: 'death_date', type: 'date', nullable: true })
-  deathDate: string | null | undefined;
+  deathDate!: string | null;
 
   @Column({
     name: 'death_date_precision',
