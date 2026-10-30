@@ -7,7 +7,7 @@ import {
   TableIndex,
 } from 'typeorm';
 
-export class CreateUsersTable1793106949332 implements MigrationInterface {
+export class CreateUsersTable1793107745382 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({

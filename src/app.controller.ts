@@ -5,7 +5,7 @@ import { Public } from './common/decorators/public.decorator';
 import { AppInfoDto } from './app.dto';
 import { AppService } from './app.service';
 
-@ApiTags('app')
+@ApiTags('App Controller')
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}

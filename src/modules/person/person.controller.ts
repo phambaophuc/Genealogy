@@ -35,7 +35,7 @@ import { QueryPersonsDto } from './dto/query-persons.dto';
 import { UpdatePersonDto } from './dto/update-person.dto';
 import { PersonService } from './person.service';
 
-@ApiTags('persons')
+@ApiTags('Persons Controller')
 @ApiBearerAuth('access-token')
 @Controller('persons')
 export class PersonController {

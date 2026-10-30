@@ -32,9 +32,9 @@ export function setupSwagger(
       },
       'access-token',
     )
-    .addTag('app', 'Service metadata')
-    .addTag('auth', 'Authentication and current user')
-    .addTag('health', 'Liveness and readiness probes')
+    .addTag('App Controller', 'Service metadata')
+    .addTag('Auth Controller', 'Authentication and current user')
+    .addTag('Health Controller', 'Liveness and readiness probes')
     .build();
 
   const openApiDocument = SwaggerModule.createDocument(app, document, {

@@ -17,6 +17,7 @@ import { DatabaseModule } from './database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { HealthModule } from './modules/health/health.module';
 import { PersonModule } from './modules/person/person.module';
+import { TreeModule } from './modules/tree/tree.module';
 
 @Module({
   imports: [
@@ -117,6 +118,7 @@ import { PersonModule } from './modules/person/person.module';
     AuthModule,
     HealthModule,
     PersonModule,
+    TreeModule,
   ],
   controllers: [AppController],
   providers: [

@@ -10,7 +10,7 @@ import { HealthResponseDto } from './dto/health-response.dto';
 /**
  * Kept outside the API prefix and versioning so probes can call /health.
  */
-@ApiTags('health')
+@ApiTags('Health Controller')
 @Controller({ path: 'health', version: VERSION_NEUTRAL })
 export class HealthController {
   constructor(private readonly configService: ConfigService) {}

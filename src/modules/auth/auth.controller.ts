@@ -20,7 +20,7 @@ import { LoginResponseDto } from './dto/login-response.dto';
 import { LoginDto } from './dto/login.dto';
 import { UserProfileDto } from './dto/user-profile.dto';
 
-@ApiTags('auth')
+@ApiTags('Auth Controller')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
