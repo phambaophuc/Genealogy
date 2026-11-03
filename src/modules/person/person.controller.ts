@@ -28,6 +28,11 @@ import { Roles } from '../../common/decorators/roles.decorator';
 import { PaginatedResponseDto } from '../../common/dto/paginated-response.dto';
 import { Role } from '../../common/enums/role.enum';
 import type { AuthenticatedUser } from '../../common/interfaces/authenticated-user.interface';
+import {
+  AddChildDto,
+  AddParentDto,
+  AddSpouseDto,
+} from './dto/add-relation.dto';
 import { CreatePersonDto } from './dto/create-person.dto';
 import { PersonRelationsDto } from './dto/person-relations.dto';
 import { PersonResponseDto } from './dto/person-response.dto';
@@ -76,6 +81,54 @@ export class PersonController {
     @Param('id', ParseUUIDPipe) id: string,
   ): Promise<PersonRelationsDto> {
     return this.personService.findRelations(id);
+  }
+
+  @Post(':id/spouses')
+  @Roles(Role.ADMIN)
+  @ApiOperation({
+    summary: 'Add a spouse to a person',
+  })
+  @ApiCreatedEnvelopeResponse(PersonResponseDto, {
+    description: 'Spouse link created.',
+  })
+  @ApiCommonErrorResponses()
+  addSpouse(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() dto: AddSpouseDto,
+  ): Promise<PersonResponseDto> {
+    return this.personService.addSpouse(id, dto);
+  }
+
+  @Post(':id/parents')
+  @Roles(Role.ADMIN)
+  @ApiOperation({
+    summary: 'Add a parent to a person',
+  })
+  @ApiCreatedEnvelopeResponse(PersonResponseDto, {
+    description: 'Parent link created.',
+  })
+  @ApiCommonErrorResponses()
+  addParent(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() dto: AddParentDto,
+  ): Promise<PersonResponseDto> {
+    return this.personService.addParent(id, dto);
+  }
+
+  @Post(':id/children')
+  @Roles(Role.ADMIN)
+  @ApiOperation({
+    summary: 'Add a child to a person',
+  })
+  @ApiCreatedEnvelopeResponse(PersonResponseDto, {
+    description: 'Child link created.',
+  })
+  @ApiCommonErrorResponses()
+  addChild(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() dto: AddChildDto,
+  ): Promise<PersonResponseDto> {
+    return this.personService.addChild(id, dto);
   }
 
   @Get(':id')
